@@ -18,6 +18,7 @@
 		529D2C682BD9FCA8002EEA69 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D2C672BD9FCA8002EEA69 /* StoryViewModel.swift */; };
 		529D2C6B2BD9FD20002EEA69 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 529D2C6A2BD9FD20002EEA69 /* GoogleGenerativeAI */; };
 		529D2C6D2BDA365E002EEA69 /* ElevenLabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D2C6C2BDA365E002EEA69 /* ElevenLabsService.swift */; };
+		529D2C6F2BDA3CA6002EEA69 /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D2C6E2BDA3CA6002EEA69 /* SpeechViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		524B7ABF2BD8F54D008BF116 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		529D2C672BD9FCA8002EEA69 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		529D2C6C2BDA365E002EEA69 /* ElevenLabsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsService.swift; sourceTree = "<group>"; };
+		529D2C6E2BDA3CA6002EEA69 /* SpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				529D2C672BD9FCA8002EEA69 /* StoryViewModel.swift */,
+				529D2C6E2BDA3CA6002EEA69 /* SpeechViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				524B7ABD2BD8DCEF008BF116 /* SettingsView.swift in Sources */,
+				529D2C6F2BDA3CA6002EEA69 /* SpeechViewModel.swift in Sources */,
 				524B7ABB2BD8DCDB008BF116 /* StoriesView.swift in Sources */,
 				524B7AB92BD8DC21008BF116 /* Topics.swift in Sources */,
 				524B7AA82BD8DBA0008BF116 /* ContentView.swift in Sources */,
