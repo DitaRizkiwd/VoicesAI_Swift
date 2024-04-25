@@ -19,8 +19,13 @@ struct SettingsView: View {
             Form{
                 Section{
                     TextField("API KEY", text: $apiKey)
+                        .onAppear{
+                            apiKey = UserDefaults.standard.string(forKey: "GeminiAIKey") ?? ""
+                        }
                     TextField("ELEVEN KEY", text: $elevenLansKey)
-                    
+                        .onAppear{
+                            elevenLansKey = UserDefaults.standard.string(forKey: "ElevenLabsKey") ?? ""
+                        }
                 }
             header:{
                 Text("API KEYS")
@@ -43,15 +48,20 @@ struct SettingsView: View {
             }
                 
             }
-            .navigationTitle("Settings")
+            .navigationTitle("Configuration")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
+                //Mark: - SAVE BUTTON
+
                 Button{
-                    
+                    saveKey()
                 }
             label:{
                 Text("Save")
+                    
             }
+            .padding(.trailing,8)
+            .disabled(apiKey.isEmpty || elevenLansKey.isEmpty)
             }
         }
     }
@@ -59,4 +69,10 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+}
+extension SettingsView{
+    func saveKey(){
+        UserDefaults.standard.set(apiKey, forKey: "GeminiAIKey")
+        UserDefaults.standard.set(elevenLansKey, forKey: "ElevenLabsKey")
+    }
 }
