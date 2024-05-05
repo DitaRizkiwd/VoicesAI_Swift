@@ -12,6 +12,7 @@ struct StoriesView: View {
     @State private var selectedMood : Mood = .bahagia
     
    @StateObject private var storyvm = StoryViewModel()
+    @StateObject private var speechvm = SpeechViewModel()
     
     var body: some View {
         NavigationStack{
@@ -100,10 +101,7 @@ struct StoriesView: View {
                 
                 //Mark: - BUTTON GENERATE
                 Button {
-                    Task{
-                      await storyvm.generateStory(topic: selectedTopics, mood: selectedMood)
-                    }
-                  
+                    todayStory()
                 }
             label:{
                 if storyvm.isLoading{
@@ -133,5 +131,26 @@ struct StoriesView: View {
 
 #Preview {
     StoriesView()
+}
+//Mark: - PLAY SPEECH
+extension StoriesView{
+    func playSpeech(){
+        let apiKey = UserDefaults.standard.string(forKey: "ElevenLabsKey") ?? ""
+        Task{
+            await speechvm.generateAndPlaySpeech(from:storyvm.displayedStoryText, apiKey: apiKey)
+        }
+    }
+    func playGenerateStory(){
+        Task{
+          await storyvm.generateStory(topic: selectedTopics, mood: selectedMood)
+        }
+    }
+    private func todayStory(){
+        if storyvm.displayedStoryText.isEmpty{
+            playGenerateStory()
+        }else{
+            playSpeech()
+        }
+    }
 }
 

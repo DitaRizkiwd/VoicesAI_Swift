@@ -50,9 +50,11 @@ extension SpeechViewModel{
             audioPlayer?.delegate = self
             isPlaying = true
             audioPlayer?.play()
+        
         }
         catch {
             print("Audio Player error \(error)")
+            
         }
     }
 }

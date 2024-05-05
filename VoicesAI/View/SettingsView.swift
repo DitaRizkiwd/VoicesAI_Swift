@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var apiKey : String = ""
-    @State private var elevenLansKey: String = ""
+    @State private var elevenLabsKey: String = ""
     
     let signUpGemini = "https://ai.google.dev"
     let signUpElevenLabs = "https://elevenlabs.io/api"
@@ -22,9 +22,9 @@ struct SettingsView: View {
                         .onAppear{
                             apiKey = UserDefaults.standard.string(forKey: "GeminiAIKey") ?? ""
                         }
-                    TextField("ELEVEN KEY", text: $elevenLansKey)
+                    TextField("ELEVEN KEY", text: $elevenLabsKey)
                         .onAppear{
-                            elevenLansKey = UserDefaults.standard.string(forKey: "ElevenLabsKey") ?? ""
+                            elevenLabsKey = UserDefaults.standard.string(forKey: "ElevenLabsKey") ?? ""
                         }
                 }
             header:{
@@ -61,7 +61,7 @@ struct SettingsView: View {
                     
             }
             .padding(.trailing,8)
-            .disabled(apiKey.isEmpty || elevenLansKey.isEmpty)
+            .disabled(apiKey.isEmpty || elevenLabsKey.isEmpty)
             }
         }
     }
@@ -73,6 +73,6 @@ struct SettingsView: View {
 extension SettingsView{
     func saveKey(){
         UserDefaults.standard.set(apiKey, forKey: "GeminiAIKey")
-        UserDefaults.standard.set(elevenLansKey, forKey: "ElevenLabsKey")
+        UserDefaults.standard.set(elevenLabsKey, forKey: "ElevenLabsKey")
     }
 }
